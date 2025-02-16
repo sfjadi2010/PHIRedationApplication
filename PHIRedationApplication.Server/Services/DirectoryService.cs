@@ -23,6 +23,7 @@ public class DirectoryService : IDirectoryService
     {
         try
         {
+            // Check if the directory exists, if not create it
             if (!Directory.Exists(directoryPath))
             {
                 Directory.CreateDirectory(directoryPath);

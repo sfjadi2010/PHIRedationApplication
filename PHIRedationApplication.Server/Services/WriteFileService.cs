@@ -5,7 +5,7 @@ namespace PHIRedationApplication.Server.Services;
 /// <summary>
 /// Service to handle writing file content to the server.
 /// </summary>
-public class WriteFileService
+public class WriteFileService : IWriteFileService
 {
     private readonly IDirectoryService _directoryService;
     private readonly ILogger<WriteFileService> _logger;
@@ -32,11 +32,14 @@ public class WriteFileService
     {
         try
         {
+            // Ensure the directory exists, if not creating it
             var uploadDirectory = Path.Combine(Directory.GetCurrentDirectory(), "ProcessedFiles");
             _directoryService.EnsureDirectoryExists(uploadDirectory);
 
+            // Write the content to a file
             var filePath = Path.Combine(uploadDirectory, $"_{fileName}");
             await File.WriteAllTextAsync(filePath, content);
+
             _logger.LogInformation("File written successfully to {FilePath}", filePath);
             return filePath;
         }

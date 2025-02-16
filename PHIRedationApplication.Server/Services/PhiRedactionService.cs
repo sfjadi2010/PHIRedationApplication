@@ -1,11 +1,12 @@
-﻿using System.Text.RegularExpressions;
+﻿using PHIRedationApplication.Server.Services.Interfaces;
+using System.Text.RegularExpressions;
 
 namespace PHIRedationApplication.Server.Services;
 
 /// <summary>
 /// Service for redacting PHI (Protected Health Information) from text content.
 /// </summary>
-public class PhiRedactionService
+public class PhiRedactionService : IPhiRedactionService
 {
     private readonly ILogger<PhiRedactionService> _logger;
 
@@ -48,9 +49,14 @@ public class PhiRedactionService
     /// <returns>The text content with PHI redacted.</returns>
     private string Redact(string content)
     {
+        // Define patterns to redact PHI
         var patterns = new Dictionary<string, string>
             {
                 { "Name", @"(?<=Name:\s)(?<Value>\b[A-Z][a-z]*\s[A-Z][a-z]*\b)" },
+                { "First Name", @"(?<=First Name:\s)(?<Value>\b[A-Z][a-z]*\s[A-Z][a-z]*\b)" },
+                { "Last Name", @"(?<=Last Name:\s)(?<Value>\b[A-Z][a-z]*\s[A-Z][a-z]*\b)" },
+                { "Firstname", @"(?<=Firstname:\s)(?<Value>\b[A-Z][a-z]*\s[A-Z][a-z]*\b)" },
+                { "Lastname", @"(?<=Lastname:\s)(?<Value>\b[A-Z][a-z]*\s[A-Z][a-z]*\b)" },
                 { "Patient Name", @"(?<=Patient Name:\s)(?<Value>\b[A-Z][a-z]*\s[A-Z][a-z]*\b)" },
                 { "Date of Birth", @"(?<=Date of Birth:\s)(?<Value>\b\d{2}/\d{2}/\d{4}\b)" },
                 { "DOB", @"(?<=DOB:\s)(?<Value>\b\d{2}/\d{2}/\d{4}\b)" },
@@ -65,8 +71,10 @@ public class PhiRedactionService
                 { "Medical Record Number", @"(?<=Medical Record Number:\s)(?<Value>.*)" }
             };
 
+        // Redact PHI based on patterns
         foreach (var pattern in patterns)
         {
+            // Replace the matched pattern with [REDACTED]
             content = Regex.Replace(content, pattern.Value, "[REDACTED]", RegexOptions.Compiled);
         }
 
