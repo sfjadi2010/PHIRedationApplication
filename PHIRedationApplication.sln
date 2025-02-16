@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35806.99 d17.13
+VisualStudioVersion = 17.13.35806.99
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "phiredationapplication.client", "phiredationapplication.client\phiredationapplication.client.esproj", "{70A36FFE-8D48-4B6A-25EA-4692119630DE}"
 EndProject
@@ -11,6 +11,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PHITestProject", "PHITestProject\PHITestProject.csproj", "{4FF9973C-D574-4E2C-981C-70A0A0A8B312}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -28,6 +30,10 @@ Global
 		{3EE3A5CA-56B2-4A2E-9C17-77B77A03AC9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3EE3A5CA-56B2-4A2E-9C17-77B77A03AC9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3EE3A5CA-56B2-4A2E-9C17-77B77A03AC9D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4FF9973C-D574-4E2C-981C-70A0A0A8B312}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4FF9973C-D574-4E2C-981C-70A0A0A8B312}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4FF9973C-D574-4E2C-981C-70A0A0A8B312}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4FF9973C-D574-4E2C-981C-70A0A0A8B312}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
