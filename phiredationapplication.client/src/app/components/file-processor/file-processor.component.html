@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h2>Lab Order Processor</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <button (click)="fileInput.click()">Select Files</button>
+    <input #fileInput type="file" (change)="onFilesSelected($event)" accept=".txt" multiple hidden>
+    <button (click)="processFiles()" [disabled]="selectedFiles.length === 0">Process Files</button>
+  </div>
+
+  <div *ngIf="selectedFiles.length > 0">
+    <hr>
+    <h3>Selected Files:</h3>
+    <ul>
+      <li *ngFor="let fileWithState of selectedFiles">
+        {{ fileWithState.file.name }}
+        <span *ngIf="fileWithState.isLoading" class="spinner"></span>
+      </li>
+    </ul>
+  </div>
+</div>

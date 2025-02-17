@@ -1,3 +1,4 @@
+using PHIRedationApplication.Server.Apis;
 using PHIRedationApplication.Server.Services;
 using PHIRedationApplication.Server.Services.Interfaces;
 
@@ -29,4 +30,5 @@ app.UseHttpsRedirection();
 
 app.MapFallbackToFile("/index.html");
 
+app.PostMaps();
 app.Run();

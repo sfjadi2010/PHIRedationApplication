@@ -1,14 +1,14 @@
-﻿:host {
-    max-width: 1280px;
-    padding: 2rem;
-    text-align: center;
+﻿.header {
+  background-color: #008DB9;
+  color: white;
+  padding: 3px;
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: lighter;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-th, td {
-    padding-left: 1rem;
-    padding-right: 1rem;
-}
-
-table {
-    margin: 0 auto;
+.loading-indicator {
+  font-size: 1.5em;
+  color: #007bff;
 }

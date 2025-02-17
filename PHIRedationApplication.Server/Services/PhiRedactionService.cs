@@ -28,7 +28,7 @@ public class PhiRedactionService : IPhiRedactionService
     {
         try
         {
-            _logger.LogInformation("Redacting PHI from text: {Text}", content);
+            _logger.LogInformation("Redacting PHI from text");
 
             // Redact PHI from the text
             var RedactedContent = Redact(content);
