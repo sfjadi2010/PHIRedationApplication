@@ -26,7 +26,7 @@ public static class FileProcessApi
                     return Results.BadRequest("No file found in the request.");
                 }
 
-                var result = phiRedatorService.RedactPhiFromFile(file);
+                var result = await phiRedatorService.RedactPhiFromFile(file);
 
                 return Results.Ok(result);
             }
