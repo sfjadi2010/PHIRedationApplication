@@ -38,6 +38,12 @@ public class WriteFileService : IWriteFileService
 
             // Write the content to a file
             var filePath = Path.Combine(uploadDirectory, $"_{fileName}");
+
+            if (File.Exists(filePath))
+            {
+                File.Delete(filePath);
+            }
+
             await File.WriteAllTextAsync(filePath, content);
 
             _logger.LogInformation("File written successfully to {FilePath}", filePath);

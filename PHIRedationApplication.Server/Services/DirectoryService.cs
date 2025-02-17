@@ -29,10 +29,6 @@ public class DirectoryService : IDirectoryService
                 Directory.CreateDirectory(directoryPath);
                 _logger.LogInformation("Directory created at path: {DirectoryPath}", directoryPath);
             }
-            else
-            {
-                _logger.LogInformation("Directory already exists at path: {DirectoryPath}", directoryPath);
-            }
         }
         catch (Exception ex)
         {
